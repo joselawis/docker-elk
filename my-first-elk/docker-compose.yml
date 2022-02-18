@@ -1,0 +1,9 @@
+version: "3.5"
+services:
+  comment-service:
+    image: elk-image:latest
+    ports:
+      - "8002:8002"
+    labels:
+      collect_logs_with_filebeat: "true"
+      decode_log_event_to_json_object: "true"
