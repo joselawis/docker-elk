@@ -36,7 +36,11 @@ public class LogGenerator {
     try {
       int v = 1 / 0;
     } catch (Exception e) {
-      log.error("UN ERROR - {} - {}", v("exceptionName", "IOException"), v("exceptionMessage", e));
+      log.error(
+          "ERROR VALUES - {} - {}", v("exceptionName", e.getClass().getName()),
+          v("exceptionMessage",
+              e.getMessage()), e);
+      log.error("ERROR BASIC - Hola ", e);
     }
   }
 }
