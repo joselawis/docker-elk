@@ -1,5 +1,5 @@
 FROM openjdk:11-jre
-MAINTAINER Jose Luis Contreras <joseluis.conteras@altia.es>
+LABEL MAINTAINER="Jose Luis Contreras <joseluis.conteras@altia.es>"
 
 VOLUME /tmp
 
