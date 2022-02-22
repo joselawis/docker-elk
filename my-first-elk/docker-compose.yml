@@ -4,6 +4,8 @@ services:
     image: dockerelk:latest
     ports:
       - "8002:8002"
+    environment:
+      - "SPRING_PROFILES_ACTIVE=docker"
     labels:
       collect_logs_with_filebeat: "true"
       decode_log_event_to_json_object: "true"
