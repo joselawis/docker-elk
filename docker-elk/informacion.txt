@@ -2,3 +2,4 @@ https://github.com/cassiomolin/log-aggregation-spring-boot-elastic-stack/
 https://cassiomolin.com/2019/06/30/log-aggregation-with-spring-boot-elastic-stack-and-docker/#logging-in-json-format
 https://www.baeldung.com/dockerizing-spring-boot-application
 https://programmerclick.com/article/9571376487/
+https://www.innoq.com/en/blog/structured-logging/
