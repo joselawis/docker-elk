@@ -11,8 +11,8 @@
       <appender-ref ref="jsonConsoleAppender"/>
     </root>
   </springProfile>
-  <springProfile name="!docker">
 
+  <springProfile name="!docker">
     <appender class="ch.qos.logback.core.ConsoleAppender" name="flatConsoleAppender">
       <encoder>
         <charset>utf8</charset>
@@ -26,7 +26,6 @@
     <root level="DEBUG">
       <appender-ref ref="flatConsoleAppender"/>
     </root>
-
   </springProfile>
 
   <springProperty name="application_name" scope="context" source="spring.application.name"/>
