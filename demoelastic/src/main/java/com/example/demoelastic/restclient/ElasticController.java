@@ -5,7 +5,6 @@ import java.util.Optional;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,8 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class ElasticController {
 
   private static final String INDEX = "my_index";
-  @Autowired
-  private ElasticSearchService elasticSearchService;
+
+  private final ElasticSearchService elasticSearchService = ElasticSearchService
+      .getElasticService(ElasticController.class);
 
   @GetMapping("/generate")
   public ResponseEntity test() {
