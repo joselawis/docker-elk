@@ -22,13 +22,13 @@ public class ElasticController {
   @GetMapping("/generate")
   public ResponseEntity test() {
     try {
-      elasticSearchService.log(INDEX,
+      elasticSearchService.logObject(INDEX,
           Product.builder()
               .id(randomId())
               .name("Juanito")
               .description("Soy un tio normal")
               .build());
-      elasticSearchService.log(INDEX, new HashMap<String, String>() {{
+      elasticSearchService.logMap(INDEX, new HashMap<String, String>() {{
             put("name", "Benito");
             put("description", "Me fumo 4 porros");
           }}

@@ -66,12 +66,13 @@ public class ElasticSearchService {
   private void destroy() {
     try {
       restClient.close();
+      log.info("Elasticsearch destroyed");
     } catch (IOException e) {
       e.printStackTrace();
     }
   }
 
-  public void log(String index, Object document) throws Exception {
+  public void logObject(String index, Object document) throws Exception {
     try {
       final BulkResponse response = client.bulk(builder -> {
         builder.index(index)
@@ -88,21 +89,8 @@ public class ElasticSearchService {
     }
   }
 
-  public void log(String index, Map<String, String> keyValue) throws Exception {
+  public void logMap(String index, Map<String, String> keyValue) throws Exception {
     keyValue.put("class", clazz);
-    try {
-      final BulkResponse response = client.bulk(builder -> {
-        builder.index(index)
-            .operations(ob -> {
-              ob.index(ib -> ib.document(keyValue));
-              return ob;
-            });
-
-        return builder;
-      });
-    } catch (IOException e) {
-      log.error("ERROR", e);
-      throw new Exception(e);
-    }
+    logObject(index, keyValue);
   }
 }
